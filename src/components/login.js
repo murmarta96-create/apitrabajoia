@@ -11,92 +11,102 @@ class Login extends HTMLElement {
   }
 
   render() {
-    this.shadow.innerHTML = /*html*/`
+    const username = this.getAttribute('username') || 'User';
+
+    this.shadow.innerHTML = 
+    /*html*/`
       <style>
 
-/*LOGIN */
+        /*LOGIN */
 
-.login-container{
-display: flex;
-flex-direction: column;
-gap: 2rem;
-width: 100%;
-height: 100vh;
-align-items: center;
-justify-content: center;
-font-family: "Retro Computer", ui-monospace, monospace;
-font-size: 1.4rem;
-}
+        .login-container{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        font-family: "Retro Computer", ui-monospace, monospace;
+        font-size: 1.4rem;
+        }
 
-/*LOGIN HEADER */
+        /*LOGIN HEADER */
 
-.login-title{
-font-family: "Pixel LCD", monospace;
-color: var(--yellow);
-text-align: center;
-font-size: 2.5rem;
-}
+        .login-title{
+        font-family: "Pixel LCD", monospace;
+        color: var(--yellow);
+        text-align: center;
+        font-size: 2.5rem;
+        }
 
-/*LOGIN BODY */
+        .login-greeting{
+        font-family: "Pixel LCD", monospace;
+        color: var(--yellow);
+        text-align: center;
+        font-size: 1rem;
+        }
 
-.login-body{
-display: flex;
-flex-direction: column;
-gap: 1rem;
-width: 90%;
-max-width: 500px;
-}
+        /*LOGIN BODY */
 
-.login-body label{
-font-family: "Pixel LCD", monospace;
-color: var(--yellow);
-font-size: 1.2rem;
-}
+        .login-body{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 90%;
+        max-width: 500px;
+        }
 
-.login-body input{
-width: 100%;
-font-size: 1.2rem;
-padding: 0.8rem 1rem;
-box-sizing: border-box;
-}
+        .login-body label{
+        font-family: "Pixel LCD", monospace;
+        color: var(--yellow);
+        font-size: 1.2rem;
+        }
 
-/*LOGIN FOOTER */
+        .login-body input{
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+        box-sizing: border-box;
+        }
 
-.login-footer{
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1rem;
-width: 90%;
-max-width: 500px;
-}
+        /*LOGIN FOOTER */
 
-.login-button{
-border: none;
-border-radius: 0.5rem;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 0.5rem;
-padding: 0.9rem 1rem;
-font-family: "Retro Computer", monospace;
-font-size: 1rem;
-width: 50%;
-box-sizing: border-box;
-margin: 2rem;
-cursor: pointer;
-background-color:yellow;
-color:black;
-}
+        .login-footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 90%;
+        max-width: 500px;
+        }
 
-.forgot-button{
-font-family: "Retro Computer", monospace;
-text-align: center;
-background-color: transparent;
-border: transparent;
-color: var(--yellow);
-font-size: 1.1rem;
-}
+        .login-button{
+        border: none;
+        border-radius: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.9rem 1rem;
+        font-family: "Retro Computer", monospace;
+        font-size: 1rem;
+        width: 50%;
+        box-sizing: border-box;
+        margin: 2rem;
+        cursor: pointer;
+        background-color:yellow;
+        color:black;
+        }
+
+        .forgot-button{
+        font-family: "Retro Computer", monospace;
+        text-align: center;
+        background-color: transparent;
+        border: transparent;
+        color: var(--yellow);
+        font-size: 1.1rem;
+        }
 
       </style>
 
@@ -104,6 +114,7 @@ font-size: 1.1rem;
     <form>
       <div class="login-header">
         <h1 class="login-title">FIGHTER</h1>
+        <p class="login-greeting">Hello, ${username}</p>
       </div>
 
       <div class="login-body">
@@ -136,6 +147,8 @@ font-size: 1.1rem;
         password: form.querySelector('input[name="user-password"]').value,
       };
 
+      console.log('Datos del formulario:', data);
+
       alert('Login sent');
 
       this.dispatchEvent(new CustomEvent('login-submit', {
@@ -143,7 +156,7 @@ font-size: 1.1rem;
         bubbles: true,
         composed: true,
       }));
-    
+    });
   }
 
 }
