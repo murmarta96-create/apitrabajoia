@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="./src/index.js"></script>
+</head>
+
+<body>
+  <header-component>
+    <logo-component></logo-component>
+    <menu-component></menu-component>
+  </header-component>
+
+  <main-component>
+    <tablelist-component labels='{
+      "name": "Name",
+      "email": "Email",
+      "createdAt": "Creation date",
+      "updatedAt": "Last updated"
+    }'></tablelist-component>
+    <form-component></form-component>
+  </main-component>
+</body>
+
+</html>

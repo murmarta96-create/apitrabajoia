@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Retro Computer";
+  src: url("./fonts/RetroComputer-PersonalUseOnly.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixel LCD";
+  src: url("./fonts/PixelLCD-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg: #000000;
+  --panel: #000000;
+  --yellow: yellow;
+  --text: #f5f0e6;
+  --border-thick: 4px;
+  --border-thin: 2px;
+  --red: red;
+  --bg-card: var(--panel);
+  --border: var(--yellow);
+  --border-width: var(--border-thin);
+  --radius: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Retro Computer", ui-monospace, monospace;
+
+}
